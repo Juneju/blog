@@ -1,8 +1,13 @@
 #bgDiv{
-  height:500px;
+  height:calc(100vw / 1.5);
   margin-top: -30px;
   >img{
     height:100%;
     width:100%;
   }
+}
+
+.paginationDiv{
+  margin-top: 60px;
+  float: right;
 }
