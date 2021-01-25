@@ -11,3 +11,32 @@
   margin-top: 60px;
   float: right;
 }
+
+.svg-icon{
+  padding-right: 0;
+}
+.wrapper{
+  max-width: 80%;
+}
+
+#archive{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  .left{
+    ul{
+      margin-left: 0;
+      .list-group-item{
+        line-height: 2;
+      }
+      .liDiv{
+        display: grid;
+        grid-template-columns: 3fr 2fr 1fr;
+      }
+    }
+  }
+}
+
+a{
+  color: black !important;
+  text-decoration: none !important;
+}
