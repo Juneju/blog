@@ -28,7 +28,8 @@ baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  Juneju
 author: June
-
+blog: blog
+subTitle: welcome
 # Build settings
 theme: minima
 plugins:
@@ -36,7 +37,7 @@ plugins:
   - jekyll-paginate
 
 
-paginate: 1
+paginate: 2
 
 header_pages:
   - about.markdown

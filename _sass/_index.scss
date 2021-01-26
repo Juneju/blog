@@ -1,6 +1,21 @@
+$h-w: 100vw / 2.2;
 #bgDiv{
-  height:calc(100vw / 2.2);
+  height:$h-w;
   margin-top: -30px;
+  >div{
+    position: absolute;
+    color: rgb(235, 235, 241);
+    text-align: center;
+    font-size: 4rem;
+    width: 100%;
+    font-weight: bold;
+    top:$h-w / 2;
+  }
+  .subtitle{
+    color: rgb(214, 228, 231);
+    font-size: 1rem;
+    font-weight: 500;
+  }
   >img{
     height:100%;
     width:100%;
@@ -8,8 +23,12 @@
 }
 
 .paginationDiv{
-  margin-top: 60px;
+  margin-top: 8em;
   float: right;
+}
+
+article{
+  padding: 0 5rem;
 }
 
 .svg-icon{
@@ -39,4 +58,25 @@
 a{
   color: black !important;
   text-decoration: none !important;
+}
+
+.footer-col-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 8fr 12fr;
+  margin-left: 0;
+}
+.p-6{
+  padding: 0 6em;
+}
+.site-footer {
+  border-top: 1px solid #ebebf1;
+  padding: 2em 0;
+}
+
+.postTitle{
+  a {
+    color: #2f3232;
+  }
+  margin-top: 1em;
+  font-weight: bold;
 }
