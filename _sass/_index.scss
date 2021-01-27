@@ -53,6 +53,28 @@ article{
       }
     }
   }
+  .right{
+    padding-left: 7rem;
+    >div:last-child{
+      text-align: right;
+      ul{
+        margin-left:0;
+      }
+      li{
+        cursor: pointer;
+      }
+    }
+    .badge-category {
+      color: white;
+      background-color: #255152
+    }
+    .head{
+      margin-bottom: 1rem;
+      text-align: left;
+      font-size: 1.5rem;
+      color: #589a94;
+    }
+  }
 }
 
 a{
