@@ -102,3 +102,25 @@ a{
   margin-top: 1em;
   font-weight: bold;
 }
+
+.post-head{
+  font-size: 2rem !important;
+  font-weight: bold;
+  color: #32424a !important;
+}
+
+.dropdown-item{
+  text-align: center !important;
+  padding: .25rem 0 !important;
+}
+.dropdown-item:active {
+  background-color: #ebebf1 !important;
+}
+.dropdown-menu {
+  min-width: 4rem !important;
+  width: 4rem !important;
+}
+.drop-active{
+  background-color: #91b8b9 !important;
+  color:white !important;
+}

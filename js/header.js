@@ -21,4 +21,26 @@
             }
         }
     }
+
+    global(2);
+
 })();
+
+/**
+ * 国际化切换
+ * @param t
+ */
+function global(t) {
+    const elem = $('.dropdown-item');
+    for (let i = 0; i < t; i++) {
+        elem[i].onclick = function () {
+            for (let j = 0; j < t; j++) {
+                if (j !== i) {
+                    $(elem[j]).removeClass("drop-active");
+                }
+            }
+            $(elem[i]).addClass("drop-active");
+            $(".bi-globe2")[0].innerHTML=$(elem[i])[0].innerHTML
+        }
+    }
+}
