@@ -34,10 +34,13 @@ subTitle: welcome
 theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-paginate
+#  - jekyll-paginate
 
 
 paginate: 2
+paginate_category:
+  - en
+  - cn
 
 header_pages:
   - about.md

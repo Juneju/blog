@@ -1,48 +1,96 @@
 ---
 layout: home
 ---
+<div class="cn" style="display: none;">
+    <!-- This loops through the paginated posts -->
+    {% for post in paginator.cn_page.posts %}
+    <h1 class="postTitle"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h1>
+    <p class="author">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+    </p>
+    <div class="content">
+        {{ post.content | strip_html | truncate:300 }}
+    </div>
+    {% endfor %}
 
-<!-- This loops through the paginated posts -->
-{% for post in paginator.posts %}
-<h1 class="postTitle"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h1>
-<p class="author">
-    {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-    <span class="post-meta">{{ post.date | date: date_format }}</span>
-</p>
-<div class="content">
-    {{ post.content | strip_html | truncate:300 }}
-</div>
-{% endfor %}
+    <!-- Pagination links -->
+    <div class="paginationDiv">
+        {% if paginator.cn_page.total_pages > 1 %}
+        <div class="pagination">
+            {% if paginator.cn_page.previous_page %}
+            <a href="{{ paginator.cn_page.previous_page_path | relative_url }}" class="page-link">&laquo; Prev</a>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link" aria-disabled="true">&laquo; Prev</span>
+            </li>
+            {% endif %}
 
-<!-- Pagination links -->
-<div class="paginationDiv">
-    {% if paginator.total_pages > 1 %}
-    <div class="pagination">
-        {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | relative_url }}" class="page-link">&laquo; Prev</a>
-        {% else %}
-        <li class="page-item disabled">
-            <span class="page-link" aria-disabled="true">&laquo; Prev</span>
-        </li>
-        {% endif %}
+            {% for page in (1..paginator.cn_page.total_pages) %}
+            {% if page == paginator.cn_page.page %}
+            <em class="page-link">{{ page }}</em>
+            {% elsif page == 1 %}
+            <a href="{{ '/' | relative_url }}" class="page-link">{{ page }}</a>
+            {% else %}
+            <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-link">{{ page }}</a>
+            {% endif %}
+            {% endfor %}
 
-        {% for page in (1..paginator.total_pages) %}
-        {% if page == paginator.page %}
-        <em class="page-link">{{ page }}</em>
-        {% elsif page == 1 %}
-        <a href="{{ '/' | relative_url }}" class="page-link">{{ page }}</a>
-        {% else %}
-        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-link">{{ page }}</a>
-        {% endif %}
-        {% endfor %}
-
-        {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path | relative_url }}" class="page-link">Next &raquo;</a>
-        {% else %}
-        <li class="page-item disabled">
-            <span class="page-link">Next &raquo;</span>
-        </li>
+            {% if paginator.cn_page.next_page %}
+            <a href="{{ paginator.cn_page.next_page_path | relative_url }}" class="page-link">Next &raquo;</a>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Next &raquo;</span>
+            </li>
+            {% endif %}
+        </div>
         {% endif %}
     </div>
-    {% endif %}
+</div>
+
+<div class="en" style="display: none;">
+    <!-- This loops through the paginated posts -->
+    {% for post in paginator.en_page.posts %}
+    <h1 class="postTitle"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h1>
+    <p class="author">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        <span class="post-meta">{{ post.date | date: date_format }}</span>
+    </p>
+    <div class="content">
+        {{ post.content | strip_html | truncate:300 }}
+    </div>
+    {% endfor %}
+
+    <!-- Pagination links -->
+    <div class="paginationDiv">
+        {% if paginator.en_page.total_pages > 1 %}
+        <div class="pagination">
+            {% if paginator.en_page.previous_page %}
+            <a href="{{ paginator.en_page.previous_page_path | relative_url }}" class="page-link">&laquo; Prev</a>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link" aria-disabled="true">&laquo; Prev</span>
+            </li>
+            {% endif %}
+
+            {% for page in (1..paginator.en_page.total_pages) %}
+            {% if page == paginator.en_page.page %}
+            <em class="page-link">{{ page }}</em>
+            {% elsif page == 1 %}
+            <a href="{{ '/' | relative_url }}" class="page-link">{{ page }}</a>
+            {% else %}
+            <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" class="page-link">{{ page }}</a>
+            {% endif %}
+            {% endfor %}
+
+            {% if paginator.en_page.next_page %}
+            <a href="{{ paginator.en_page.next_page_path | relative_url }}" class="page-link">Next &raquo;</a>
+            {% else %}
+            <li class="page-item disabled">
+                <span class="page-link">Next &raquo;</span>
+            </li>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
 </div>
