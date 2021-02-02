@@ -5,7 +5,7 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
     - cron: '4 10/24 * * *'  # Once a day
 
