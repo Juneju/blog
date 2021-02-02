@@ -7,7 +7,7 @@ on:
     branches:
       - master
   schedule:
-    - cron: '24 */24 * * *'  # Once a day
+    - cron: '4 10/24 * * *'  # Once a day
 
 jobs:
   deploy:
