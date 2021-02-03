@@ -15,3 +15,8 @@ github pages
 #### 2021.1.27
 * 归档列表增加类别筛选  
 
+#### 2021.2.3
+* 修改jekyll-paginate插件，做到中英文分类
+* 通过github actions 部署github pages
+
+
