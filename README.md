@@ -19,4 +19,6 @@ github pages
 * 修改jekyll-paginate插件，做到中英文分类
 * 通过github actions 部署github pages
 
-
+#### 2021.2.4
+* 增加不同语言类别下文章计数的插件CategoryLanguage
+* 归档页根据选择不同语言，展示不同内容
