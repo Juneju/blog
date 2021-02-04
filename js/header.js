@@ -10,15 +10,7 @@
         }
         //archive列表筛选功能
         if (window.location.pathname === '/blog/archive/') {
-            const search = window.location.search.replace("?category=", '');
-            const items = $('.liDiv');
-            for (let i = 0; i < items.length; i++) {
-                let cate = items[i].getAttribute("data-cate");
-                if (cate.indexOf(search) !== -1) {
-                    //不符合搜索
-                    $(items[i].parentElement).show();
-                }
-            }
+            archiveFilter();
         }
     }
 
@@ -27,6 +19,26 @@
     lang();
 
 })();
+
+/**
+ * archive过滤(根据语言和类别)
+ */
+function archiveFilter(){
+    const search = window.location.search.replace("?category=", '');
+    const items = $('.liDiv');
+    for (let i = 0; i < items.length; i++) {
+        $(items[i].parentElement).hide();
+        let cate = items[i].getAttribute("data-cate");
+        let en=items[i].getAttribute("lang-en");
+        let cn=items[i].getAttribute("lang-cn");
+        if(en.length===0&&cn.length===0 || en&&getCookie("lang")==='English' || cn&&getCookie("lang")==='中文') {
+            if (cate.indexOf(search) !== -1) {
+                //不符合搜索
+                $(items[i].parentElement).show();
+            }
+        }
+    }
+}
 
 /**
  * 国际化切换
@@ -55,11 +67,11 @@ function global(t) {
  */
 function lang() {
     let l = getCookie("lang");
-    if (l !== "") {
-        changePageLang(l)
-    } else {
-        changePageLang("中文")
+    if (l === "") {
+        l="中文";
+        document.cookie = "lang=" + l + "; path=/ ";
     }
+    changePageLang(l)
 }
 
 //导航条修改-lang
@@ -78,12 +90,16 @@ function changePageLang(lang) {
 
 //页面语言切换
 function changePage(lang) {
+    let url = window.location.pathname;
     if (lang === "中文") {
         $('.en').hide();
         $('.cn').show();
     } else {
         $('.cn').hide();
         $('.en').show();
+    }
+    if(url==='/blog/archive/'){
+        archiveFilter();
     }
 }
 

@@ -8,10 +8,12 @@ layout: page
             {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
             {%- for post in site.posts -%}
             <li class="list-group-item" style="display: none">
-                <div class="liDiv" data-cate="{{post.categories | join:',' }}">
-                    <div><a href="{{ post.url | relative_url }}" style="font-size: 1.1rem;">{{ post.title | escape }}</a></div>
+                <div class="liDiv" data-cate="{{post.categories | join:',' }}" lang-en="{{post.en}}"
+                     lang-cn="{{post.cn}}">
+                    <div><a href="{{ post.url | relative_url }}" style="font-size: 1.1rem;">{{ post.title | escape
+                        }}</a></div>
                     <div>
-                        {%- for category in post.categories offset:1  -%}
+                        {%- for category in post.categories offset:1 -%}
                         <span class="badge badge-pill badge-light" style="margin-left: 0.5rem;">
                             {{ category }}
                         </span>
@@ -28,12 +30,24 @@ layout: page
         <div class="head">category</div>
         <div>
             <ul class="list-group">
-                {%- for category in site.categories offset:1  -%}
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="{{ site.baseurl }}/archive/?category={{ category[0] | url_encode }}" title="{{ category[0] }}">{{ category[0] }}</a>
-                    <span class="badge badge-category badge-pill">{{category.last|size}}</span>
-                </li>
-                {%- endfor -%}
+                <div class="en">
+                    {%- for item in site.data.cat-lang.cat-lang-en -%}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="{{ site.baseurl }}/archive/?category={{ item[0] | url_encode }}" title="{{ item[0] }}">{{
+                            item[0] }}</a>
+                        <span class="badge badge-category badge-pill">{{item[1]}}</span>
+                    </li>
+                    {%- endfor -%}
+                </div>
+                <div class="cn">
+                    {%- for item in site.data.cat-lang.cat-lang-cn -%}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="{{ site.baseurl }}/archive/?category={{ item[0] | url_encode }}" title="{{ item[0] }}">{{
+                            item[0] }}</a>
+                        <span class="badge badge-category badge-pill">{{item[1]}}</span>
+                    </li>
+                    {%- endfor -%}
+                </div>
             </ul>
         </div>
     </div>
