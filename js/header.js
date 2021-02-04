@@ -1,3 +1,4 @@
+import {getCookie} from "./utils.js";
 (function () {
     //导航高亮切换
     window.onload = function () {
@@ -103,13 +104,3 @@ function changePage(lang) {
     }
 }
 
-//获取cookie
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i].trim();
-        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-    }
-    return "";
-}
