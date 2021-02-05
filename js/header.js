@@ -39,6 +39,16 @@ function archiveFilter(){
             }
         }
     }
+    if(search.length>0){
+        let list=$('.right .list-group .list-group-item a');
+        for(let i=0;i<list.length;i++){
+            if(list[i].innerHTML===search){
+                $(list[i].parentElement).addClass('category-back');
+            }else{
+                $(list[i].parentElement).removeClass('category-back');
+            }
+        }
+    }
 }
 
 /**
