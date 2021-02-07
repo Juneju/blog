@@ -9,8 +9,8 @@ import {getCookie} from "./utils.js";
             lang = 'zh-CN'
         }
         var gitalk = new Gitalk({
-            clientID: '8b2591ffac78b3682040',
-            clientSecret: 'b915ec650b2390e175176f9b5d9da53b7c10aa9d',
+            clientID: '05baae5d0310820999a4',
+            clientSecret: '60e29410a12dc3410ca082aafe56e3ffafb05955',
             repo: 'blog',
             owner: 'Juneju',
             admin: ['Juneju'],
