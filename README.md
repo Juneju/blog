@@ -23,3 +23,9 @@ github pages
 * 增加不同语言类别下文章计数的插件CategoryLanguage
 * 归档页根据选择不同语言，展示不同内容
 * 使用gitalk来接收评论
+
+#### 2021.2.8
+* 增加google analytics
+
+#### 2021.2.9
+* 增加文章目录导航
