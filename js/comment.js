@@ -1,7 +1,7 @@
 import {getCookie} from "./utils.js";
 
 (function () {
-    if (window.location.pathname.indexOf('/blog/posts/') !== -1) {
+    if (window.location.pathname.indexOf('/blog/posts/') !== -1 && window.location.host.indexOf("127.0.0.1")===-1) {
         let lang = getCookie('lang');
         if (lang === 'English') {
             lang = 'en'
