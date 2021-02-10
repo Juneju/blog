@@ -103,10 +103,16 @@
 
 .articleBody{
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 4fr 1fr;
   grid-column-gap: 5rem;
   width: 100%;
+  @media screen and (max-width: 1000px) {
+    display: block;
+  }
 }
 .postArticle {
-  padding: 0 18rem;
+  padding: 0 15rem;
+  @media screen and (max-width: 1000px) {
+    padding:0 3rem;
+  }
 }

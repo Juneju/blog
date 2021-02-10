@@ -2,7 +2,6 @@
 layout: home
 ---
 <div class="cn">
-    {{jekyll.environment}}
     <!-- This loops through the paginated posts -->
     {% for post in paginator.cn_page.posts %}
     <h1 class="postTitle"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h1>

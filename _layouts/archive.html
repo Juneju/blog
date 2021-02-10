@@ -12,14 +12,14 @@ layout: page
                      lang-cn="{{post.cn}}">
                     <div><a href="{{ post.url | relative_url }}" style="font-size: 1.1rem;">{{ post.title | escape
                         }}</a></div>
-                    <div>
+                    <div class="list2">
                         {%- for category in post.categories offset:1 -%}
                         <span class="badge badge-pill badge-light" style="margin-left: 0.5rem;">
                             {{ category }}
                         </span>
                         {%- endfor -%}
                     </div>
-                    <div>{{ post.date | date: date_format }}</div>
+                    <div class="list3">{{ post.date | date: date_format }}</div>
                 </div>
             </li>
             {%- endfor -%}
