@@ -4,10 +4,10 @@ title: About
 permalink: /about/
 ---
 
- 欢迎来到June的博客。
 
-构建这个博客的初衷是锻炼自己的语言表达能力的同时提升技术能力。  
+Welcome to June's blog.  
+My aim to build this blog is to improve my language skill ,as well as my coding skill.   
+If you happen to visit my blog and happen to be suspicious of some post , please contact me or leave a comment.   
+As English is not my native language, I would appreciate it if you could point out the wrong expression.  
+The blog is now under construction and posts have not yet been published.
 
-如果你碰巧访问了我的博客，碰巧对我的某一篇文章有疑问，请联系我。
-
-目前博客正在搭建中，还未正式上线博文。

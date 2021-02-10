@@ -7,13 +7,25 @@
     <div class="collapse navbar-collapse" id="navbarNav" style="width: 100%;">
         {%- assign default_paths = site.pages | map: "path" -%}
         {%- assign page_paths = site.header_pages | default: default_paths -%}
+        {%- assign page_paths_cn = site.header_pages_cn | default: default_paths -%}
         {%- if page_paths -%}
-        <ul class="navbar-nav">
+        <ul class="navbar-nav en" style="display: none">
             {%- for path in page_paths -%}
             {%- assign my_page = site.pages | where: "path", path | first -%}
             {%- if my_page.title -%}
             <li class="nav-item">
                 <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }} </a>
+            </li>
+            {%- endif -%}
+            {%- endfor -%}
+
+        </ul>
+        <ul class="navbar-nav cn" style="display: none">
+            {%- for path in page_paths_cn -%}
+            {%- assign my_page = site.pages | where: "path", path | first -%}
+            {%- if my_page.title-cn -%}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ my_page.url | relative_url }}">{{ my_page.title-cn | escape }} </a>
             </li>
             {%- endif -%}
             {%- endfor -%}

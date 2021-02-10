@@ -46,6 +46,10 @@ header_pages:
   - about.md
   - Archive.md
 
+header_pages_cn:
+  - about_cn.md
+  - Archive.md
+
 sass:
   style: compressed
 

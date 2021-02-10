@@ -41,6 +41,12 @@ article{
 #archive{
   display: grid;
   grid-template-columns: 3fr 1fr;
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: 3fr !important;
+    .right{
+      display: none;
+    }
+  }
   .left{
     ul{
       margin-left: 0;
@@ -50,11 +56,16 @@ article{
       .liDiv{
         display: grid;
         grid-template-columns: 3fr 2fr 1fr;
+        white-space: nowrap;
       }
     }
   }
   .right{
-    padding-left: 7rem;
+    //padding-left: 7rem;
+    justify-self: end;
+    >div{
+      width: 9rem;
+    }
     >div:last-child{
       text-align: right;
       ul{
@@ -134,4 +145,8 @@ a{
 
 .category-back{
   background: rgb(214, 228, 231) !important;
+}
+
+.nav-item{
+  word-break: keep-all;
 }
