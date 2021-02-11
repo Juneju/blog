@@ -69,6 +69,13 @@ function global(t) {
             $(".bi-globe2")[0].innerHTML = lang;
             document.cookie = "lang=" + lang + "; path=/ ";
             changePage(lang);
+            if(window.location.pathname.indexOf('/blog/about')!==-1){
+                if (lang === "中文") {
+                    window.location.href = window.location.protocol + "//" + window.location.host + "/blog/about_cn/";
+                }else{
+                    window.location.href = window.location.protocol + "//" + window.location.host + "/blog/about/";
+                }
+            }
         }
     }
 }
