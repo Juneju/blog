@@ -13,11 +13,12 @@ import {getCookie} from "./utils.js";
         if (window.location.pathname === '/blog/archive/') {
             archiveFilter();
         }
+
+        global(2);
+
+        lang();
     }
 
-    global(2);
-
-    lang();
 
 })();
 
@@ -32,7 +33,7 @@ function archiveFilter(){
         let cate = items[i].getAttribute("data-cate");
         let en=items[i].getAttribute("lang-en");
         let cn=items[i].getAttribute("lang-cn");
-        if(en.length===0&&cn.length===0 || en&&getCookie("lang")==='English' || cn&&getCookie("lang")==='中文') {
+        if(en.length===0&&cn.length===0 || en&&getCookie("lang")==='English' || cn&&getCookie("lang")==='cn') {
             if (cate.indexOf(search) !== -1) {
                 //不符合搜索
                 $(items[i].parentElement).show();
@@ -67,14 +68,18 @@ function global(t) {
             $(elem[i]).addClass("drop-active");
             let lang = $(elem[i])[0].innerHTML
             $(".bi-globe2")[0].innerHTML = lang;
+            if(lang==='中文'){
+                lang='cn';
+            }
             document.cookie = "lang=" + lang + "; path=/ ";
-            changePage(lang);
             if(window.location.pathname.indexOf('/blog/about')!==-1){
-                if (lang === "中文") {
+                if (lang === "cn") {
                     window.location.href = window.location.protocol + "//" + window.location.host + "/blog/about_cn/";
                 }else{
                     window.location.href = window.location.protocol + "//" + window.location.host + "/blog/about/";
                 }
+            }else{
+                changePage(lang);
             }
         }
     }
@@ -86,7 +91,7 @@ function global(t) {
 function lang() {
     let l = getCookie("lang");
     if (l === "") {
-        l="中文";
+        l="cn";
         document.cookie = "lang=" + l + "; path=/ ";
     }
     changePageLang(l)
@@ -94,9 +99,13 @@ function lang() {
 
 //导航条修改-lang
 function changePageLang(lang) {
-    $(".bi-globe2")[0].innerHTML = lang;
+    if (lang === "cn") {
+        $(".bi-globe2")[0].innerHTML = "中文";
+    }else{
+        $(".bi-globe2")[0].innerHTML = lang;
+    }
     const elem = $('.dropdown-item');
-    if (lang === "中文") {
+    if (lang === "cn") {
         $(elem[0]).addClass("drop-active");
         $(elem[1]).removeClass("drop-active");
     } else {
@@ -109,7 +118,7 @@ function changePageLang(lang) {
 //页面语言切换
 function changePage(lang) {
     let url = window.location.pathname;
-    if (lang === "中文") {
+    if (lang === "cn") {
         $('.en').hide();
         $('.cn').show();
     } else {
