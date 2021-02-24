@@ -14,7 +14,7 @@ import {getCookie} from "./utils.js";
             repo: 'blog',
             owner: 'Juneju',
             admin: ['Juneju'],
-            id: location.pathname,      // Ensure uniqueness and length less than 50
+            id: md5(location.pathname),      // Ensure uniqueness and length less than 50
             distractionFreeMode: false, // Facebook-like distraction free mode
             language: lang
         })
