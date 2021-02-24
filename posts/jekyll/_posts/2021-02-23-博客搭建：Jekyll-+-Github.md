@@ -8,31 +8,33 @@ no-catalog: false
 
 ## Jekyll
 
+-----
+
 Jekyll 是静态网站生成工具。Github Pages可以免费部署Jekyll生成的网站。
 
 本博客是在jekyll minima theme的基础上改造页面样式，增加一些功能点。所以需要在本地环境安装调试Jekyll项目。
 
 ### 安装
 
-##### 依赖环境
+#### 依赖环境
 
 * Ruby version 2.4.0 or higher
 * RubyGems
 * GCC and Make
 
-##### gem 安装包
+#### gem 安装包
 
 ``` shell
 gem install jekyll bundler
 ```
 
-##### 创建项目
+#### 创建项目
 
 ``` shell
 jekyll new blog
 ```
 
-##### 启动项目
+#### 启动项目
 
 ``` shell
 bundle exec jekyll serve
@@ -42,15 +44,17 @@ bundle exec jekyll serve --port PORT
 bundle exec jekyll serve --host HOSTNAME
 ```
 
-##### 访问项目
+#### 访问项目
 
 本地项目默认地址是：http://localhost:4000
 
 注：默认ruby gems配置的地址有时候下载速度比较慢，可以改用镜像：https://mirrors.tuna.tsinghua.edu.cn/rubygems/
 
+<br/>
+
 ### 项目结构
 
-##### 默认主题minima路径
+#### 默认主题minima路径
 
 在项目下(Gemfile所在路径)运行：
 
@@ -58,7 +62,7 @@ bundle exec jekyll serve --host HOSTNAME
 bundle info --path minima
 ```
 
-#####　主题结构
+#### 主题结构
 
 	├─assets
 	├─_includes
@@ -85,12 +89,11 @@ bundle info --path minima
    ├── head.html
    ├── header.html
    ```
-
+   {% raw %}
    注入方式：
-
-   ``` django
+    ``` django
    {%- include header.html -%}
-   ```
+    ```
 
 3. _sass
 
@@ -102,7 +105,7 @@ bundle info --path minima
 
 
 
-##### 项目结构
+#### 项目结构
 
 除了包含上述的主题结构外，还有以下：
 
@@ -151,7 +154,7 @@ bundle info --path minima
 
    在Liquid模板中可以通过```{{ site.xxx }}```来获取对应的值。
    
-   
+   <br/>
 
 ### Front Matter
 
@@ -166,9 +169,11 @@ title: 标题
 ---
 ```
 
-> layout 用于页面嵌入布局中（通过 ```{{content}}``` ）。
+> layout 用于页面嵌入布局中（通过 `{{content}}` ）。
 >
-> title是页面定义的变量，可以在该页面的Liquid模板中通过```{{ page.title }}```使用。
+> title是页面定义的变量，可以在该页面的Liquid模板中通过`{{ page.title }}`使用。
+
+<br/>
 
 ### Jekyll Liquid
 
@@ -176,9 +181,11 @@ Jekyll 使用 [Liquid](https://shopify.github.io/liquid/) 模板语言处理模�
 
 语言基本上和一般模板语言相同，如变量取值`{{ object }}`  , 条件判断`{% if condition %} {% endif %}  ` 等等。具体可以参考官方文档。
 
-
+<br/>
 
 ## GitHub 部署
+
+-----
 
 用GitHub pages部署Jekyll，需要新建一个仓库，然后在仓库的settings中配置GitHub Pages。具体的操作可以参考网上的教程。
 
@@ -204,19 +211,25 @@ jobs:
           JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
 ```
 
-
+<br/>
 
 ## 参考
 
-> https://jekyllrb.com/docs/
->
-> https://jekyllrb.com/docs/continuous-integration/github-actions/
+-----
 
+https://jekyllrb.com/docs/
 
+https://jekyllrb.com/docs/continuous-integration/github-actions/
+
+<br/>
 
 ## 其他
+
+-----
 
 这篇博客的搭建主要耗时不到一个月，抽出了几天，这几天抽出了几个小时，实际耗时比较短，所以总体搭建下来感觉还是挺简单的。如果不修改Jekyll默认主题，可能只需要几个小时。
 
 最后，既然自己已经搭出来，希望自己能坚持做下去。
 
+
+{% endraw %}
