@@ -16,7 +16,8 @@ import {getCookie} from "./utils.js";
             admin: ['Juneju'],
             id: md5(location.pathname),      // Ensure uniqueness and length less than 50
             distractionFreeMode: false, // Facebook-like distraction free mode
-            language: lang
+            language: lang,
+            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
         })
         gitalk.render('gitalk-container')
     }
