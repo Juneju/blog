@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en"><head style="font-family: monospace;">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>读书笔记：数据密集型应用系统设计 - 数据系统基础 | June’s blog</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="读书笔记：数据密集型应用系统设计 - 数据系统基础" />
+<meta name="author" content="June" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="可靠、可扩展与可维护的应用系统" />
+<meta property="og:description" content="可靠、可扩展与可维护的应用系统" />
+<link rel="canonical" href="/blog/posts/notes/2022/03/12/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1-%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80.html" />
+<meta property="og:url" content="/blog/posts/notes/2022/03/12/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1-%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80.html" />
+<meta property="og:site_name" content="June’s blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-12T10:05:18+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="读书笔记：数据密集型应用系统设计 - 数据系统基础" />
+<script type="application/ld+json">
+{"description":"可靠、可扩展与可维护的应用系统","url":"/blog/posts/notes/2022/03/12/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1-%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80.html","@type":"BlogPosting","headline":"读书笔记：数据密集型应用系统设计 - 数据系统基础","dateModified":"2022-03-12T10:05:18+00:00","datePublished":"2022-03-12T10:05:18+00:00","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/posts/notes/2022/03/12/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E6%95%B0%E6%8D%AE%E5%AF%86%E9%9B%86%E5%9E%8B%E5%BA%94%E7%94%A8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1-%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E5%9F%BA%E7%A1%80.html"},"author":{"@type":"Person","name":"June"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/main.css">
+    <link rel="stylesheet" href="/blog/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/blog/assets/css/bootstrap-icons.css">
+    <link rel="stylesheet" href="/blog/assets/css/gitalk.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="June's blog" /><script async src="https://www.googletagmanager.com/gtag/js?id='G-N9VT95T2YZ'"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-N9VT95T2YZ');
+</script></head>
+<body style="padding-top: 3.5rem;font-family: monospace;"><nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" rel="author" href="/blog/">June&#39;s blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" style="width: 100%;"><ul class="navbar-nav en" style="display: none"><li class="nav-item">
+                <a class="nav-link" href="/blog/about/">About </a>
+            </li><li class="nav-item">
+                <a class="nav-link" href="/blog/archive/">Archive </a>
+            </li></ul>
+        <ul class="navbar-nav cn" style="display: none"><li class="nav-item">
+                <a class="nav-link" href="/blog/about_cn/">关于 </a>
+            </li><li class="nav-item">
+                <a class="nav-link" href="/blog/archive/">归档 </a>
+            </li></ul><div style="width: 100%;">
+    <ul class="navbar-nav" style="float:right;">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="bi-globe2">中文</i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="font-size: 0.5rem;">
+                <a class="dropdown-item drop-active" href="#">中文</a>
+                <a class="dropdown-item" href="#">English</a>
+            </div>
+        </li>
+    </ul>
+</div></div>
+</nav>
+
+
+<main class="page-content" aria-label="Content">
+        <article class="post h-entry postArticle">
+
+    <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">读书笔记：数据密集型应用系统设计 - 数据系统基础</h1>
+        <p class="post-meta">
+            <time class="dt-published" datetime="2022-03-12T10:05:18+00:00" itemprop="datePublished">Mar 12, 2022
+            </time></p>
+    </header>
+
+    <div>
+        <div class="post-content articleBody" itemprop="articleBody">
+            <div class="post-container">
+                <h2 id="可靠可扩展与可维护的应用系统">可靠、可扩展与可维护的应用系统</h2>
+
+<hr />
+
+<p>核心设计目标：可靠、可扩展与可维护的数据系统（data-intensive applications）。</p>
+
+<h3 id="可靠性">可靠性</h3>
+
+<ul>
+  <li>
+    <p>硬件故障</p>
+
+    <p>大多数情况下采用硬件冗余方案是足够的。但是，当应用可以运行在大规模机器上时，硬件故障率呈线性增长。因此，软件容错的方式成了硬件容错的有力补充。</p>
+  </li>
+  <li>
+    <p>软件错误</p>
+
+    <p>比起硬件故障，软件故障事先更加难以预料。只能仔细考虑很多细节，包括认真检查依赖的假设条件与系统之间交互，进行全面的测试，进程隔离，允许进程崩溃并自动重启，反复评估，监控井分析生产环节的行为表现等。</p>
+  </li>
+  <li>
+    <p>人为失误</p>
+
+    <p>如果我们假定人是不可靠的，那么该如何保证系统的可靠性呢？可以尝试结合以下多种方位：</p>
+
+    <ul>
+      <li>以最小出错的方式来设计系统。例如，精心设计的抽象层、API 以及管理界面，使“做正确的事情”很轻松，但搞坏很复杂。但是，如果限制过多，人们就会想法来绕过它，这会抵消其正面作用。因此解决之道在于很好的平衡。</li>
+      <li>想办法分离最容易出错的地方、容易引发故障的接口。特别是，提供一个功能齐全但非生产用的沙箱环境，使人们可以放心的尝试、体验，包括导入真实的数据，万一出现问题，不会影响真实用户。</li>
+      <li>充分的测试：从各单元测试到全系统集成测试以及手动测试。自动化测试已被广泛使用，对于覆盖正常操作中很少出现的边界条件等尤为重要。</li>
+      <li>当出现人为失误时，提供快速的恢复机制以尽量减少故障影响。例如，快速回滚配置改动，滚动发布新代码（这样任何意外的错误仅会影响一小部分用户），并提供校验数据的工具（防止旧的计算方式不正确）。</li>
+      <li>设置详细而清晰的监控子系统，包括性能指标和错误率。在其他行业称为遥测， 一旦火箭离开地面，遥测对于跟踪运行和了解故障至关重要。监控可以向我们发送告警信号，井检查是否存在假设不成立或违反约束条件等。这些检测指标对于诊断问题也非常有用。</li>
+      <li>推行管理流程井加以培训。</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="可扩展性">可扩展性</h3>
+
+<ul>
+  <li>
+    <p>负载</p>
+
+    <p>负载：用负载参数来描述。参数的最佳选择取决于系统的体系结构，如web服务器中的每秒请求处理次数，数据库写入的比例，缓存命中率等。</p>
+  </li>
+  <li>
+    <p>性能</p>
+
+    <p>在批处理系统中，我们通常关心吞吐量（throughput），即每秒可处理的记录数，或者在某指定数据集上运行作业所需的总时间。在线系统，通常看中服务器的响应时间（response time）。</p>
+
+    <blockquote>
+      <p>延迟与响应时间</p>
+
+      <ul>
+        <li>延迟：处理请求时间（service time）</li>
+        <li>响应时间：处理请求时间+网络延迟+排队延迟</li>
+      </ul>
+    </blockquote>
+
+    <p>对于响应时间，通常是考察平均响应时间，但是最好使用百分位数（多少用户需要等待多长时间）。</p>
+
+    <blockquote>
+      <p>百分位数
+如中位数指标（p50）描述一半用户的等待时间少于中位数响应时间，另一半多于该时间。
+为了弄清楚异常值有多糟糕，需要关注更大的百分位数（p95, p99, p99.9）值【尾部延迟】。
+排队延迟往往在高百分数响应时间中影响很大。</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>应对负载增加的方法</p>
+
+    <ul>
+      <li>垂直扩展 ：升级到更强大的机器</li>
+      <li>水平扩展：将负载分散到多个更小的机器</li>
+    </ul>
+
+    <p>现在谈论更多的是如何在垂直扩展和水平扩展之间做取舍。取舍因素包括数据读取量、写入量、待存储的数据量、数据的复杂度、响应时间要求、访问模式等。</p>
+  </li>
+</ul>
+
+<h3 id="可维护性">可维护性</h3>
+
+<p>众所周知，软件的大部分成本并不在最初的开发阶段，而是在于整个生命周期内持续的投入，这包括维护与缺陷修复，监控系统来保持正常运行、故障排查、适配新平台、搭配新场景、技术缺陷的完善以及增加新功能等。</p>
+
+<p>为尽可能减少维护期间的麻烦，在软件设计的时候要特别关注软件系统等三个设计原则：</p>
+
+<ul>
+  <li>
+    <p>可运维性</p>
+
+    <p>良好的可操作性意味着使日常工作变得简单，使运营团队能够专注于高附加值的任务。数据系统设计可以在这方面贡献很多， 包括：</p>
+
+    <ul>
+      <li>提供对系统运行时行为和内部的可观测性，方便监控。</li>
+      <li>支持自动化， 与标准工具集成。</li>
+      <li>避免绑定特定的机器，这样在整个系统不间断运行的同时，允许机器停机维护。</li>
+      <li>提供良好的文档和易于理解的操作模式，诸如“如果我做了X ，会发生Y ”。</li>
+      <li>提供良好的默认配置，且允许管理员在需要时方便地修改默认值。</li>
+      <li>尝试自我修复，在需要时让管理员手动控制系统状态。</li>
+      <li>行为可预测，减少意外发生。</li>
+    </ul>
+  </li>
+  <li>
+    <p>简单性</p>
+
+    <p>复杂性有各种各样的表现方式： 状态空间的膨胀，模块紧耦合，令人纠结的相互依赖关系， 不一致的命名和术语，为了性能而采取的特殊处理，为解决某特定问题而引入的特殊框架等。</p>
+
+    <p>降低复杂性可以大大提高软件的可维护性，因此简单性应该是我们构建系统的关键目标之一。</p>
+
+    <p>消除意外复杂性最好手段之一是抽象。一个好的设计抽象可以隐藏大量的实现细节，并对外提供干净、易懂的接口。一个好的设计抽象可用于各种不同的应用程序。这样，复用远比多次重复实现更有效率；另一方面，也带来更高质量的软件，而质量过硬的抽象组件所带来的好处，可以使运行其上的所有应用轻松获益。</p>
+  </li>
+  <li>
+    <p>可演化性</p>
+
+    <p>在组织、流程方面，敏捷开发模式为适应变化提供了很好的参考。敏捷社区还发布了很多技术工具和模式，以帮助在频繁变化的环境中开发软件，例如测试驱动开发(TDD）和重构。</p>
+
+    <p>我们的目标是可以轻松地修改数据系统，使其适应不断变化的需求，这和简单性与抽象性密切相关： 简单易懂的系统往往比复杂的系统更容易修改。这是一个非常重要的理念，我们将采用另一个不同的词来指代数据系统级的敏捷性， 即可演化性。</p>
+  </li>
+</ul>
+
+
+            </div>
+
+            <div class="sidebar-container catalog-container sidebar-stick">
+                
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#" id="catalog">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div id="gitalk-container">
+
+    </div>
+</article>
+</main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper footer-padding">
+
+    <h2 class="footer-heading">June&#39;s blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div>
+        <ul class="contact-list">
+          <li class="p-name">June</li>
+        </ul>
+      </div>
+      <div><ul class="social-media-list"><li><a href="https://github.com/Juneju"><svg class="svg-icon"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg> <span class="username">Juneju</span></a></li></ul>
+</div>
+      <div>
+        <p style="font-size: 0.5rem;">一个人知道自己为什么而活，就可以忍受任何一种生活。</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+<script src="/blog/js/jquery-3.5.1.min.js "></script>
+<script src="/blog/js/bootstrap.min.js "></script>
+<script src="/blog/js/md5.min.js "></script>
+<script type="module" src="/blog/js/utils.js "></script>
+<script type="module" src="/blog/js/header.js "></script>
+<script src="/blog/js/gitalk.min.js "></script>
+<script type="module" src="/blog/js/comment.js "></script>
+<script type="module" src="/blog/js/siderBar.js "></script>
+<!--<script type="module" src="/blog/js/jquery.nav.j
+s "></script>-->
+</body>
+</html>
