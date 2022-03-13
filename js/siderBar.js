@@ -32,7 +32,7 @@ import {getCookie} from "./utils.js";
                 i = "#" + $(this).prop('id');
                 t = $(this).text();
                 c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
-                l = $('<li class="' + n + '_nav"></li>').append(c);
+                l = $('<li class="' + n + '_nav" title="'+t+'"></li>').append(c);
                 $(selector).append(l);
             });
             $($('.catalog-body li')[0]).addClass('active')
